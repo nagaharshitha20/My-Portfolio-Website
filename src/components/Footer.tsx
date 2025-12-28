@@ -1,0 +1,7 @@
+export default function Footer() {
+  return (
+    <footer style={{ padding: '1rem', background: '#222', color: '#fff', marginTop: '2rem' }}>
+      <span>&copy; {new Date().getFullYear()} My Portfolio</span>
+    </footer>
+  );
+}
