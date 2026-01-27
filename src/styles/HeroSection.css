@@ -1,0 +1,325 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  /* min-height: 100vh; */
+  /* Allow auto height, usually 100vh via flex in parent or main */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Welcome badge */
+.welcome-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  background: var(--bg-secondary);
+  /* Theme bg */
+  border: 1px solid #ff5722;
+  /* Orange-ish border */
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
+  color: var(--text-primary);
+  /* Theme text */
+  font-size: 0.95rem;
+  font-weight: 500;
+  backdrop-filter: blur(2px);
+}
+
+/* Hero title */
+.hero-title {
+  font-size: 6rem;
+  margin-top: 1.1rem;
+  line-height: 1.1;
+  /* font-weight: 800; */
+
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+.hero-title-role {
+  color: #ffab00;
+  /* Amber/Orange */
+}
+
+.hero-title-creative {
+  color: #ff4081;
+  /* Pink */
+}
+
+/* Underline */
+.hero-underline {
+  width: 160px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9800, #ff4081);
+  border-radius: 2px;
+
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--text-secondary);
+  /* Theme text */
+  margin: 0 auto;
+  /* Centering fix */
+  margin-bottom: 0rem;
+  max-width: 700px;
+  line-height: 1.2;
+}
+
+.highlight-orange {
+  color: #ffab00;
+  font-weight: 600;
+}
+
+.highlight-pink {
+  color: #ff4081;
+  font-weight: 600;
+}
+
+.hero-subtext {
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--text-secondary);
+  /* Theme text */
+  margin: 0 auto 2.5rem auto;
+  /* Centering fix */
+  max-width: 600px;
+  line-height: 1.2;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.hero-button-primary {
+  background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 0.8rem 2rem !important;
+  font-size: 1rem !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 20px rgba(255, 87, 34, 0.4) !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+  background-size: 200% auto !important;
+  animation: gradientShift 3s ease infinite !important;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 87, 34, 0.5) !important;
+}
+
+.hero-button-secondary {
+  color: var(--text-primary) !important;
+  background: var(--navbar-hover-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+  padding: 0.8rem 2rem !important;
+  font-size: 1rem !important;
+  text-transform: none !important;
+  transition: background 0.2s !important;
+}
+
+/* Light Theme Specific Overrides */
+[data-theme='light'] .hero-title {
+  color: var(--text-primary);
+  /* Fallback */
+}
+
+[data-theme='light'] .hero-title-role {
+  color: var(--accent-orange) !important;
+  /* Solid Primary Blue */
+}
+
+[data-theme='light'] .hero-title-creative {
+  color: var(--accent-cyan) !important;
+  /* Solid Cyan */
+}
+
+[data-theme='light'] .hero-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme='light'] .hero-button-secondary {
+  background: var(--bg-secondary) !important;
+  /* White background */
+  color: var(--accent-orange) !important;
+  /* Blue Text */
+  border: 1px solid var(--accent-orange) !important;
+  /* Blue Border */
+}
+
+[data-theme='light'] .hero-button-secondary:hover {
+  background: var(--navbar-hover-bg) !important;
+}
+
+/* Light Theme: Welcome Badge & Primary Button */
+[data-theme='light'] .welcome-badge {
+  background: rgba(0, 86, 179, 0.08);
+  /* Light blue tint */
+  border: 1px solid var(--accent-orange);
+  /* Blue border */
+  color: var(--accent-orange);
+  /* Blue text */
+  box-shadow: 0 0 15px rgba(0, 86, 179, 0.2);
+}
+
+[data-theme='light'] .hero-button-primary {
+  background: var(--gradient-warm) !important;
+  /* Blue Gradient */
+  box-shadow: 0 4px 20px rgba(0, 86, 179, 0.4) !important;
+  color: white !important;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.social-icon {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  /* Theme text */
+  transition: color 0.3s;
+}
+
+[data-theme='light'] .social-icon {
+  color: var(--text-secondary);
+  /* Softer gray for icons in light mode */
+}
+
+[data-theme='light'] .social-icon:hover {
+  color: var(--accent-orange);
+}
+
+/* Light Theme: Social Icons Hover (Blue) */
+[data-theme='light'] .social-icon-link:hover .social-icon {
+  color: var(--accent-orange) !important;
+  /* Force Blue */
+}
+
+/* Light Theme: Underline (Blue) */
+[data-theme='light'] .hero-underline {
+  background: var(--gradient-warm) !important;
+  /* Blue Gradient */
+}
+
+/* Specific icon overrides if needed, but the general rule above should cover it */
+.social-icon-link:hover .social-icon[data-icon="github"] {
+  color: #ff9800;
+}
+
+/* ... keep existing specific dark mode overrides ... */
+
+
+/* .chevron-down {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  margin-top: -5px;
+} */
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive */
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: var(--font-3xl);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 3rem;
+    /* Specific fallback for very small screens if needed */
+  }
+
+  .hero-subtitle {
+    padding: 0 1rem;
+    font-size: var(--font-base);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-subtext {
+    padding: 0 1rem;
+    font-size: var(--font-base);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-button-primary,
+  .hero-button-secondary {
+    width: 100%;
+    /* Full width on mobile */
+    max-width: 400px;
+    justify-content: center;
+  }
+}
+
+[data-theme='light'] .highlight-orange {
+  color: var(--accent-orange) !important;
+  /* Solid Cyan */
+}

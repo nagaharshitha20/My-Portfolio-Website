@@ -1,0 +1,225 @@
+/* =====================================================
+   EXPERIENCE SECTION (TIMELINE)
+===================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.experience-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  color: var(--text-primary);
+}
+
+/* Header */
+
+.experience-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.experience-underline {
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg,
+      var(--accent-orange),
+      var(--accent-pink));
+  border-radius: 3px;
+  margin: 0.8rem auto 1.2rem;
+}
+
+.experience-intro {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline-container {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 60px;
+  min-height: 260px;
+}
+
+/* Vertical line */
+
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* ================= RADIO CONTROLS ================= */
+
+.timeline-controls {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  /* ⬅ span full line height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* ⬅ evenly spaced */
+  z-index: 3;
+}
+
+.timeline-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-radio input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0b1020;
+  border: 2px solid var(--accent-cyan);
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.timeline-radio input:checked {
+  background: var(--accent-cyan);
+  box-shadow: 0 0 14px var(--accent-cyan);
+}
+
+/* ================= ROCKET ================= */
+
+.timeline-rocket {
+
+  position: absolute;
+  left: 8px;
+  margin-top: 40px;
+  top: 0;
+  /* ⬅ same origin as radios */
+  font-size: 1.8rem;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px var(--accent-cyan));
+}
+
+/* ================= EXPERIENCE CARD ================= */
+
+.timeline-card {
+  max-width: 720px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-left: 1.5rem;
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-duration,
+.timeline-institute,
+.timeline-status {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0;
+}
+
+.timeline-desc li {
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-pill {
+  background: var(--navbar-hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+/* Light Theme Overrides */
+[data-theme='light'] .timeline-line {
+  background: var(--accent-orange);
+  /* Blue line */
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+}
+
+[data-theme='light'] .timeline-radio input:checked {
+  background: var(--accent-orange);
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.4);
+  border-color: var(--accent-orange);
+}
+
+[data-theme='light'] .timeline-rocket {
+  filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3));
+  color: var(--accent-orange);
+}
+
+[data-theme='light'] .tech-pill {
+  background: rgba(0, 86, 179, 0.05);
+  color: var(--accent-orange);
+  border-color: rgba(0, 86, 179, 0.15);
+}
+
+/* ================= MOBILE ================= */
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 30px;
+    /* More space for content */
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-controls {
+    left: 4px;
+  }
+
+  .timeline-rocket {
+    left: 0;
+    font-size: 1.5rem;
+    /* Smaller rocket */
+  }
+
+  .timeline-card {
+    margin-left: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .timeline-title {
+    font-size: 1.1rem;
+  }
+
+  .experience-title {
+    font-size: 2.5rem;
+  }
+}

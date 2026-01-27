@@ -1,13 +1,17 @@
 "use client";
-
+import '../styles/Navbar.css';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useTheme } from '../context/ThemeContext';
 
 const navItems = [
   { label: "Home", icon: <HomeOutlinedIcon />, href: "/" },
@@ -20,6 +24,35 @@ const navItems = [
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState<string>('/');
+  const { theme, toggleTheme } = useTheme();
+
+  // Scroll Spy Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems
+        .filter(item => item.href.startsWith("#"))
+        .map(item => item.href.substring(1));
+
+      let currentSection = "/";
+
+      // Check which section is in view
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If top of section is within viewport (with some offset for navbar)
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = `#${sectionId}`;
+            break;
+          }
+        }
+      }
+      setActiveItem(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleClick = (href: string) => {
     setActiveItem(href);
@@ -40,6 +73,7 @@ const Navbar = () => {
           <p className="title">Frontend Developer</p>
         </div>
       </div>
+
       <ul className="nav-links">
         {navItems.map(({ label, icon, href }) => (
           <li key={label}>
@@ -66,7 +100,26 @@ const Navbar = () => {
             )}
           </li>
         ))}
+        {/* Theme Toggle */}
+        <li style={{ display: 'flex', alignItems: 'center', padding: '0 0.5rem' }}>
+          <button
+            onClick={toggleTheme}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-primary)',
+              cursor: 'pointer',
+              fontSize: '1.2rem',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+            aria-label="Toggle Theme"
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
+        </li>
       </ul>
+
     </nav>
   );
 };

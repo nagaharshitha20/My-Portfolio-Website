@@ -1,0 +1,264 @@
+/* =====================================================
+   NAVBAR (UNCHANGED STYLES & BEHAVIOR)
+===================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Profile (left side) */
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(270deg,
+      #ff9800,
+      #ff4081,
+      #00eaff,
+      #ff9800);
+  background-size: 800% 800%;
+  animation: gradientMove 10s ease-in-out infinite;
+}
+
+.rotating-icon {
+  animation: rotate 8s linear alternate infinite;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 4px 0;
+  background: linear-gradient(270deg,
+      #ff9800,
+      #ff4081,
+      #00eaff,
+      #ff9800);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 8s ease-in-out infinite;
+}
+
+.title {
+  font-size: 0.7rem;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid hsla(0, 0%, 70%, 0.2);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.nav-links li {
+  position: relative;
+  padding: 0.3rem 0.2rem;
+}
+
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  color: #b5b4b4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.nav-links li a span {
+  margin-left: 0.5rem;
+}
+
+.nav-links li a svg {
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Hover */
+.nav-links li a:hover {
+  color: #fff;
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active */
+.nav-links li a.active {
+  border: 1px solid aqua;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 0 3px;
+  backdrop-filter: blur(5px);
+}
+
+/* Nav Socials */
+.nav-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-socials a {
+  color: #fff;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.nav-socials a:hover {
+  color: #ff4081;
+}
+
+/* Light Theme Overrides */
+[data-theme='light'] .nav-links {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* Translucent bright white */
+  border: 1px solid rgba(0, 86, 179, 0.1);
+  /* Subtle blue border */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .nav-links li a {
+  color: var(--text-primary) !important;
+  /* Ensure visibility (Dark Blue/Black) */
+  font-weight: 500;
+}
+
+[data-theme='light'] .nav-links li a:hover {
+  background-color: var(--navbar-hover-bg);
+  color: var(--accent-orange) !important;
+  /* Blue text on hover */
+}
+
+[data-theme='light'] .nav-links li a.active {
+  border: 1px solid var(--accent-orange);
+  background-color: rgba(0, 86, 179, 0.08);
+  color: var(--accent-orange) !important;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.2);
+}
+
+[data-theme='light'] .profile-icon {
+  /* Blue gradient for icon bg in light mode */
+  background: var(--gradient-warm);
+  color: white;
+}
+
+[data-theme='light'] .name {
+  /* Blue gradient text for name in light mode */
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='light'] .rotating-icon {
+  color: white;
+  /* Icon itself white on blue bg */
+}
+
+[data-theme='light'] .nav-socials a {
+  color: var(--text-primary);
+}
+
+[data-theme='light'] .nav-socials a:hover {
+  color: var(--accent-orange);
+}
+
+/* Mobile responsive for socials */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0.8rem 1rem;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 20, 0.95);
+    /* Dark bg for contrast */
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    z-index: 1001;
+    width: max-content;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  [data-theme='light'] .nav-links {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links li a span {
+    display: none;
+    /* Hide text on mobile, show icons only if available, or keep text if short */
+  }
+
+  .nav-links li a {
+    padding: 0.5rem;
+  }
+
+  .profile-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .name {
+    font-size: 0.9rem;
+  }
+
+  .nav-socials {
+    display: none;
+    /* Often hidden on mobile nav to save space */
+  }
+}
+
+/* Rotating Icon Animation Update */
+.rotating-icon {
+  color: #fff;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

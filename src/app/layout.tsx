@@ -1,11 +1,7 @@
-import Navbar from '../components/Navbar';
-import Home from './home/page';
-import './globals.css';
-
-export const metadata = {
-  title: 'My Portfolio',
-  description: 'Welcome to my portfolio',
-};
+import Navbar from "@/components/Navbar";
+import "../styles/globals.css";
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export default function RootLayout({
   children,
@@ -14,10 +10,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
+      </head>
+
       <body>
-        <Navbar />
-        <Home />
-        {/* {children} */}
+        {/* 🌌 Grid Background */}
+        <div className="bg-grid" />
+
+        {/* 🔼 App Content */}
+        <ThemeProvider>
+          <div className="app-wrapper">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,0 +1,85 @@
+/* ❌ REMOVE tailwind imports from here */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+.about-highlight {
+  color: var(--accent-pink);
+}
+
+/* ---------------- BODY ---------------- */
+
+.about-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  text-align: justify;
+  margin-top: 130px;
+}
+
+.about-description {
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+/* ---------------- STATS ---------------- */
+
+.about-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.highlight-pink {
+  color: var(--accent-pink);
+}
+
+.highlight-green {
+  color: var(--accent-green);
+}
+
+/* ---------------- IMAGE ---------------- */
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-frame {
+  width: 370px;
+  height: 420px;
+  border: 4px solid var(--text-secondary);
+  border-radius: 2rem;
+  overflow: hidden;
+  background: var(--card-bg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Responsive handled via MUI Box sx prop */

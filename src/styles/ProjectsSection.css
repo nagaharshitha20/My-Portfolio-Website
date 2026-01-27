@@ -1,0 +1,261 @@
+/* =====================================================
+   PROJECTS SECTION (UNCHANGED VISUALS, CLEANED)
+===================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.projects-section {
+  max-width: 1200px;
+  margin: -4rem auto;
+  padding: 4rem 2rem;
+  padding-top: 3.5rem;
+  color: var(--text-primary);
+}
+
+/* ---------------- HEADER ---------------- */
+
+
+
+.projects-intro {
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* =====================================================
+   PROJECT SECTION – IMAGE REFERENCE STYLE
+===================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 330px);
+  gap: 4.3rem;
+  justify-content: center;
+}
+
+/* CARD */
+
+.project-card-ref {
+  width: 370px;
+  background: var(--card-bg);
+  /* Use theme variable */
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-ref:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+
+/* IMAGE */
+
+.project-card-ref-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: transform 0.4s ease;
+  /* Smooth zoom transition */
+}
+
+/* Zoom effect on hover */
+.project-card-ref:hover .project-card-ref-image {
+  transform: scale(1.1);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  /* Keep badge white content on dark bg */
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* BODY */
+
+.project-card-ref-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Ensure body takes up remaining space */
+}
+
+/* TITLE */
+
+.project-card-ref-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  /* Theme text */
+  margin: 0 0 0.5rem 0;
+}
+
+
+/* DESCRIPTION (ALWAYS VISIBLE) */
+
+.project-card-ref-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  /* Theme text */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  flex: 1;
+  /* Push button down */
+}
+
+/* TECH PILLS */
+
+.project-card-ref-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-card-ref-pill {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme='light'] .project-card-ref-pill {
+  background: rgba(0, 86, 179, 0.05);
+  /* Very light blue tint */
+  color: var(--accent-orange);
+  /* Dark Blue text */
+  border: 1px solid rgba(0, 86, 179, 0.15);
+}
+
+/* BUTTON */
+
+.project-card-ref-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  padding: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: transparent;
+  transition: color 0.2s ease;
+}
+
+.project-card-ref-btn:hover {
+  color: #00eaff;
+}
+
+/* RESPONSIVE */
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .projects-grid {
+    gap: 2rem;
+    /* Reduce gap on smaller desktops */
+    justify-content: center;
+  }
+}
+
+/* RESPONSIVE handled via SX */
+@media (max-width: 700px) {
+  /* Kept for card internal styling logic (visibility/expand) which is complex to port completely to Box without massive refactor */
+  /* .projects-grid layout is overridden by inline styles */
+
+
+  .project-card-ref {
+    width: 100%;
+    max-width: 400px;
+    /* Centered max width */
+    margin: 0 auto;
+    cursor: pointer;
+    /* Indication it's clickable */
+    height: auto;
+    transition: all 0.3s ease;
+  }
+
+  .projects-intro {
+    font-size: var(--font-base);
+  }
+
+  .project-card-ref-image {
+    height: 180px;
+  }
+
+  /* HIDE details by default on mobile (only desc and tech) */
+  .project-card-ref-desc,
+  .project-card-ref-tech {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Keep Button VISIBLE on mobile always */
+  .project-card-ref-btn {
+    display: inline-flex;
+    opacity: 1;
+    margin-top: auto;
+    /* Push to bottom if needed */
+  }
+
+  /* SHOW details when expanded */
+  .project-card-ref.mobile-expanded .project-card-ref-desc,
+  .project-card-ref.mobile-expanded .project-card-ref-tech {
+    display: flex;
+    /* or block depending on original */
+    opacity: 1;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .project-card-ref.mobile-expanded .project-card-ref-desc {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Highlight border or shadow on expand */
+  .project-card-ref.mobile-expanded {
+    border-color: var(--accent-orange);
+    box-shadow: 0 10px 30px var(--shadow-color);
+  }
+
+  /* Fix for Light Mode Visibility on Mobile */
+  [data-theme='light'] .project-card-ref-btn {
+    color: var(--accent-orange);
+    font-weight: 700;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
