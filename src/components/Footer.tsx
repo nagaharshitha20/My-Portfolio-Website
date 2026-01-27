@@ -47,7 +47,7 @@ export default function Footer() {
 
         {/* RIGHT: Copyright */}
         <div className="footer-right">
-          <p className="copyright">© {new Date().getFullYear()} Naga Harshitha</p>
+          <p className="copyright">© 2025 Naga Harshitha</p>
           <p className="crafted-with">
             Crafted with <span className="heart">❤</span> and code
           </p>

@@ -73,7 +73,7 @@
 .social-link:hover {
   background-color: #1a1a1a;
   color: #fff;
-  transform: translateY(-3px) scale(1.1);
+  transform: translateY(-2px);
   border-color: #1a1a1a;
 }
 
@@ -122,35 +122,4 @@
   .crafted-with {
     justify-content: center;
   }
-}
-
-/* LIGHT THEME SUPPORT */
-[data-theme='light'] .footer {
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
-  color: #555;
-}
-
-[data-theme='light'] .footer-name {
-  color: #222;
-}
-
-[data-theme='light'] .footer-role {
-  color: #666;
-}
-
-[data-theme='light'] .social-link {
-  background-color: #f0f0f0;
-  color: #555;
-}
-
-[data-theme='light'] .social-link:hover {
-  background-color: #e0e0e0;
-  color: #000;
-  border-color: #d0d0d0;
-}
-
-[data-theme='light'] .copyright,
-[data-theme='light'] .crafted-with {
-  color: #666;
 }

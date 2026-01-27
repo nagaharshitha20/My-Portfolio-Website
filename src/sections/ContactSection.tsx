@@ -1,5 +1,5 @@
 "use client";
-import '../styles/ContactSection.css';
+import "../styles/ContactSection.css";
 import { useState } from "react";
 import { Box } from "@mui/material";
 import emailjs from "@emailjs/browser";
@@ -39,9 +39,14 @@ export default function ContactSection() {
       await emailjs.send(
         serviceId,
         templateId,
-        formData,
-        { publicKey: publicKey }
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message
+        },
+        publicKey // ✅ FIXED: pass publicKey as string
       );
+
       setStatus("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
@@ -62,10 +67,10 @@ export default function ContactSection() {
         className="contact-body"
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" }, // Mobile column, Desktop row
+          flexDirection: { xs: "column", md: "row" },
           alignItems: { xs: "center", md: "flex-start" },
           justifyContent: "center",
-          gap: { xs: 4, md: 6 }, // 2rem vs 3rem
+          gap: { xs: 4, md: 6 },
           flexWrap: "wrap",
           padding: { xs: "0 1rem", md: 0 }
         }}
@@ -96,6 +101,7 @@ export default function ContactSection() {
             <a
               href="https://linkedin.com/in/naga-harshitha-karra"
               target="_blank"
+              rel="noopener noreferrer"
             >
               naga-harshitha-karra
             </a>
@@ -103,7 +109,11 @@ export default function ContactSection() {
 
           <div className="get-in-touch-item">
             <FontAwesomeIcon icon={faGithub} />
-            <a href="https://github.com/nagaharshitha20" target="_blank">
+            <a
+              href="https://github.com/nagaharshitha20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               nagaharshitha20
             </a>
           </div>
@@ -127,7 +137,6 @@ export default function ContactSection() {
           </p>
 
           <form onSubmit={handleSubmit} className="contact-form">
-            {/* NAME + EMAIL ROW */}
             <div className="contact-row">
               <div className="input-container textarea-container1">
                 <input
@@ -152,7 +161,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* MESSAGE */}
             <div className="input-container textarea-container">
               <textarea
                 name="message"
