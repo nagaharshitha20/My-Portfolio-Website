@@ -1,68 +1,58 @@
 import { Box } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import '../styles/Footer.css';
 
 export default function Footer() {
   return (
     <footer className="footer">
-      <Box
-        className="footer-container"
-        sx={{
-          display: "flex",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: { xs: 4, md: 2 }, // 2rem mobile gap
-          flexDirection: { xs: "column", md: "row" },
-          textAlign: { xs: "center", md: "left" }
-        }}
-      >
-        {/* ---------- LEFT ---------- */}
+      <div className="footer-container">
+        {/* LEFT: Logo & Info */}
         <div className="footer-left">
-          <div>
+          <div className="footer-info">
             <h3 className="footer-name">Naga Harshitha</h3>
-            <p className="footer-role">
-              AI / ML Engineer • Frontend Developer
-            </p>
+            <p className="footer-role">Frontend Developer</p>
           </div>
         </div>
 
-        {/* ---------- CENTER ---------- */}
-        <div className="footer-socials">
+        {/* CENTER: Social Icons */}
+        <div className="footer-center">
           <a
             href="https://github.com/nagaharshitha20"
             target="_blank"
             rel="noreferrer"
+            className="social-link"
             aria-label="GitHub"
           >
-            <i className="fab fa-github" />
+            <FontAwesomeIcon icon={faGithub} />
           </a>
-
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/naga-harshitha-karra"
             target="_blank"
             rel="noreferrer"
+            className="social-link"
             aria-label="LinkedIn"
           >
-            <i className="fab fa-linkedin-in" />
+            <FontAwesomeIcon icon={faLinkedin} />
           </a>
-
           <a
             href="mailto:knagaharshitha2005@gmail.com"
+            className="social-link"
             aria-label="Email"
           >
-            <i className="fas fa-envelope" />
+            <FontAwesomeIcon icon={faEnvelope} />
           </a>
         </div>
 
-        {/* ---------- RIGHT ---------- */}
-        <Box className="footer-right" sx={{ textAlign: { xs: "center", md: "right" } }}>
-          <p>© {new Date().getFullYear()} Naga Harshitha</p>
-          <span>
-            Crafted with<span className="heart">♥</span>& clean code
-          </span>
-        </Box>
-      </Box>
+        {/* RIGHT: Copyright */}
+        <div className="footer-right">
+          <p className="copyright">© {new Date().getFullYear()} Naga Harshitha</p>
+          <p className="crafted-with">
+            Crafted with <span className="heart">❤</span> and code
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

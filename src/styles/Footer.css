@@ -3,10 +3,12 @@
 @tailwind utilities;
 
 .footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  padding: 2.5rem 2rem;
-  color: var(--text-secondary);
+  background-color: #050505;
+  /* Deep black background */
+  border-top: 1px solid #1a1a1a;
+  padding: 4.5rem 1.5rem;
+  color: #888;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-container {
@@ -19,110 +21,136 @@
   gap: 2rem;
 }
 
-/* LEFT */
-
+/* LEFT SECTION */
 .footer-left {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.footer-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,
-      var(--accent-cyan),
-      var(--accent-purple));
+
+.footer-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-weight: 700;
-  color: #000;
 }
 
 .footer-name {
-  font-size: 1.1rem;
-  color: var(--text-primary);
+  color: #d7d3d3;
+  font-size: 1.3rem;
+  font-weight: normal;
   margin: 0;
+  line-height: 1.6;
 }
 
 .footer-role {
-  font-size: 0.85rem;
-  opacity: 0.75;
+  font-size: 0.87rem;
+  margin: 0;
+  color: #9b9a9a;
 }
 
-/* CENTER */
-
-.footer-socials {
+/* CENTER SECTION - SOCIALS */
+.footer-center {
   display: flex;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
-.footer-socials a {
-  width: 42px;
-  height: 42px;
+.social-link {
+  width: 47px;
+  height: 47px;
   border-radius: 50%;
-  background: var(--navbar-hover-bg);
-  border: 1px solid var(--border-color);
+  background-color: #1a1a1a;
+  /* Dark circle */
   display: flex;
-  text-decoration: none;
   align-items: center;
   justify-content: center;
-  color: var(--text-primary);
-  font-size: 1.3rem;
+  color: #bfbebe;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
-.footer-socials a:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg,
-      var(--accent-white),
-      var(--accent-yellow));
-  color: #787878;
+.social-link:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+  transform: translateY(-3px) scale(1.1);
+  border-color: #1a1a1a;
 }
 
-/* Light Theme Footer */
-[data-theme='light'] .footer {
-  background: var(--bg-tertiary);
-  /* Light Gray background */
-  color: var(--text-secondary);
-  border-top: 1px solid var(--border-color);
-}
-
-[data-theme='light'] .footer-socials a {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-}
-
-[data-theme='light'] .footer-socials a:hover {
-  background: var(--navbar-hover-bg);
-  color: var(--accent-orange);
-  border-color: var(--accent-orange);
-  transform: translateY(-2px);
-}
-
-/* RIGHT */
-
+/* RIGHT SECTION - COPYRIGHT */
 .footer-right {
   text-align: right;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
-.footer-right span {
+.copyright {
+  margin: 0;
+  color: #9c9c9c;
+}
+
+.crafted-with {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: #7e7e7e;
   display: flex;
-  margin-top: 0rem;
-  opacity: 0.7;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
 }
 
 .heart {
   color: #ff4d6d;
-  margin: 0px 6px;
-
-
+  display: inline-block;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
 
-/* RESPONSE handled via SX */
+  .footer-left {
+    flex-direction: column;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .crafted-with {
+    justify-content: center;
+  }
+}
+
+/* LIGHT THEME SUPPORT */
+[data-theme='light'] .footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  color: #555;
+}
+
+[data-theme='light'] .footer-name {
+  color: #222;
+}
+
+[data-theme='light'] .footer-role {
+  color: #666;
+}
+
+[data-theme='light'] .social-link {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+[data-theme='light'] .social-link:hover {
+  background-color: #e0e0e0;
+  color: #000;
+  border-color: #d0d0d0;
+}
+
+[data-theme='light'] .copyright,
+[data-theme='light'] .crafted-with {
+  color: #666;
+}

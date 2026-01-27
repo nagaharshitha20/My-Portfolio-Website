@@ -25,26 +25,28 @@ export default function ContactSection() {
     e.preventDefault();
     setStatus("Sending...");
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+      setStatus("Configuration error. Please contact the administrator.");
+      return;
+    }
+
     try {
-      const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
-
-      if (!serviceID || !templateID || !publicKey) {
-        throw new Error("Missing EmailJS environment variables");
-      }
-
       await emailjs.send(
-        serviceID,
-        templateID,
+        serviceId,
+        templateId,
         formData,
-        publicKey
+        { publicKey: publicKey }
       );
       setStatus("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("EmailJS Error:", error);
-      setStatus("Failed to send message. Please try again.");
+      setStatus("Failed to send message.");
     }
   };
 
