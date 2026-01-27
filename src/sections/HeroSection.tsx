@@ -8,7 +8,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import Reveal from "@/components/animations/Reveal";
-import { StaggerText } from "@/components/animations/StaggerText";
+
 
 export default function HeroSection() {
   return (

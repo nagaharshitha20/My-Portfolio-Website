@@ -8,9 +8,7 @@ import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOu
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 import { useTheme } from '../context/ThemeContext';
 
 const navItems = [

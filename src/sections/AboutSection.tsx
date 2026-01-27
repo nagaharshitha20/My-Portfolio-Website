@@ -33,7 +33,7 @@ export default function AboutSection() {
         <Reveal delay={0.2}>
           <Box className="about-text" sx={{ width: { xs: "100%", md: "auto" }, flex: 1, padding: { xs: "0 0.5rem", md: 0 } }}>
             <p className="about-description">
-              I'm a passionate frontend developer who loves building beautiful interfaces.
+              I&apos;m a passionate frontend developer who loves building beautiful interfaces.
             </p>
             <p className="about-description">
               I enjoy learning new technologies and improving user experiences.

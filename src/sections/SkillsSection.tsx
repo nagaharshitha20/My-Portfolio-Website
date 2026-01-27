@@ -93,7 +93,7 @@ export default function SkillsSection() {
               <div className="category-content">
                 {category.type === "icons" ? (
                   <div className="icons-grid">
-                    {category.items.map((item: any) => (
+                    {(category.items as { name: string; logo: string }[]).map((item) => (
                       <div key={item.name} className="icon-box">
                         <img
                           src={item.logo}
@@ -105,7 +105,7 @@ export default function SkillsSection() {
                   </div>
                 ) : (
                   <div className="pills-grid">
-                    {category.items.map((item: string) => (
+                    {(category.items as string[]).map((item) => (
                       <div key={item} className="skill-pill">
                         {item}
                       </div>
