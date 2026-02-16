@@ -74,7 +74,7 @@
   border: 4px solid var(--text-secondary);
   border-radius: 2rem;
   overflow: hidden;
-  background: var(--card-bg);
+  background: transparent;
 
   display: flex;
   align-items: center;

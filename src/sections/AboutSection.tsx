@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import Image from "next/image";
 import '../styles/AboutSection.css';
 import Reveal from "../components/animations/Reveal";
 
@@ -46,7 +47,16 @@ export default function AboutSection() {
 
         <Reveal delay={0.4}>
           <Box className="about-image" sx={{ width: { xs: "100%", md: "auto" }, display: "flex", justifyContent: "center" }}>
-            <div className="image-frame" />
+            <div className="image-frame">
+              <Image
+                src="/logo/Formal_Pic.png"
+                alt="Formal Picture"
+                width={370}
+                height={420}
+                style={{ objectFit: 'cover' }}
+                priority
+              />
+            </div>
           </Box>
         </Reveal>
       </Box>

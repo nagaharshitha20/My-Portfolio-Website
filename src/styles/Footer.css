@@ -1,125 +1,137 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .footer {
-  background-color: #050505;
-  /* Deep black background */
-  border-top: 1px solid #1a1a1a;
-  padding: 4.5rem 1.5rem;
-  color: #888;
-  font-family: 'Inter', sans-serif;
+  background: var(--bg-secondary);
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
 }
 
-/* LEFT SECTION */
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-
-.footer-info {
+.footer-left,
+.footer-center,
+.footer-right {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer-center {
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 .footer-name {
-  color: #d7d3d3;
-  font-size: 1.3rem;
-  font-weight: normal;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin: 0;
-  line-height: 1.6;
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footer-role {
-  font-size: 0.87rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
   margin: 0;
-  color: #9b9a9a;
-}
-
-/* CENTER SECTION - SOCIALS */
-.footer-center {
-  display: flex;
-  gap: 1rem;
 }
 
 .social-link {
-  width: 47px;
-  height: 47px;
-  border-radius: 50%;
-  background-color: #1a1a1a;
-  /* Dark circle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #bfbebe;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-link:hover {
-  background-color: #1a1a1a;
-  color: #fff;
-  transform: translateY(-2px);
-  border-color: #1a1a1a;
+  color: var(--accent-pink);
+  transform: translateY(-3px);
 }
 
-/* RIGHT SECTION - COPYRIGHT */
-.footer-right {
-  text-align: right;
-  font-size: 1rem;
-}
-
-.copyright {
-  margin: 0;
-  color: #9c9c9c;
-}
-
+.copyright,
 .crafted-with {
-  margin: 4px 0 0 0;
-  font-size: 0.85rem;
-  color: #7e7e7e;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: right;
 }
 
 .heart {
-  color: #ff4d6d;
-  display: inline-block;
+  color: var(--accent-pink);
+  animation: pulse 1.5s infinite;
 }
 
-/* RESPONSIVE */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
-  }
-
-  .footer-left {
-    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .footer-right {
-    text-align: center;
+    align-items: center;
   }
 
+  .copyright,
   .crafted-with {
-    justify-content: center;
+    text-align: center;
   }
+}
+
+/* =================================================================
+   LIGHT THEME OVERRIDES (Blue Theme)
+================================================================= */
+
+[data-theme='light'] .footer {
+  background: #e3f2fd;
+  /* Light Blue 50 */
+  border-top: 1px solid #bbdefb;
+  /* Blue 100 */
+}
+
+[data-theme='light'] .footer-name {
+  /* Gradient is already blue in light theme vars */
+}
+
+[data-theme='light'] .footer-role {
+  color: #1565c0;
+  /* Blue 800 */
+}
+
+[data-theme='light'] .social-link {
+  color: #1976d2;
+  /* Blue 700 */
+}
+
+[data-theme='light'] .social-link:hover {
+  color: #0d47a1;
+  /* Blue 900 */
+}
+
+[data-theme='light'] .copyright,
+[data-theme='light'] .crafted-with {
+  color: #1565c0;
+  /* Blue 800 */
 }
